@@ -7,7 +7,14 @@ export default {
   template: `
     <escena
       :messages="messages"
+      :currentSentence="currentSentence"
     ></escena>
+    <button
+    @click="prevSentence"
+    >prev</button>
+    <button
+    @click="nextSentence"
+    >next</button>
   `,
   data() {
     return {
@@ -20,6 +27,21 @@ export default {
 
         "Mentrestant, altres heroes no van tenir tanta sort en la seva elecció ...",
       ],
+      currentSentence: 1,
     };
+  },
+  methods: {
+    nextSentence() {
+      if (this.currentSentence < this.messages.length - 1) {
+        this.currentSentence++;
+        console.log(this.currentSentence);
+      }
+    },
+    prevSentence() {
+      if (this.currentSentence > 0) {
+        this.currentSentence--;
+        console.log(this.currentSentence);
+      }
+    },
   },
 };

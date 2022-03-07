@@ -3,11 +3,12 @@ export default {
     <ul>
       <li
         v-for="(msg, i) in messages"
-        key="i"
+        :key="i"
+        :class="{ active: i === currentSentence }"
       >
         {{ messages[i] }}
       </li>
     </ul>
       `,
-  props: ["messages"],
+  props: ["messages", "currentSentence"],
 };
