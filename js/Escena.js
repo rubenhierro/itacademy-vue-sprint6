@@ -6,7 +6,7 @@ export default {
         :key="i"
         :class="{ active: i === currentSentence }"
       >
-        {{ messages[i] }}
+        {{ msg.txt }}
       </li>
     </ul>
       `,
