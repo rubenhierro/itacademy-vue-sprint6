@@ -1,5 +1,13 @@
 export default {
   template: `
-    <p>"El nostre heroi estava surant per l'espai sideral quan a la llunyania va albirar una nau espacial"</p>
+    <ul>
+      <li
+        v-for="(msg, i) in messages"
+        key="i"
+      >
+        {{ messages[i] }}
+      </li>
+    </ul>
       `,
+  props: ["messages"],
 };

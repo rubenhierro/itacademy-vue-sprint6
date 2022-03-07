@@ -2,9 +2,15 @@ import { createApp } from "vue";
 import Home from "./Home.js";
 import Escena from "./Escena.js";
 
-createApp({
+const app = createApp({
   components: {
     Home,
     Escena,
   },
-}).mount("#app");
+});
+
+app.mount("#app");
+
+app.config.errorHandler = (err) => {
+  console.log(err);
+};

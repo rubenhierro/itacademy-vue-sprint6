@@ -5,7 +5,9 @@ export default {
     Escena,
   },
   template: `
-    <escena></escena>
+    <escena
+      :messages="messages"
+    ></escena>
   `,
   data() {
     return {
