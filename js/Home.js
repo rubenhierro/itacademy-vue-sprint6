@@ -7,6 +7,12 @@ export default {
     Buttons,
   },
   template: `
+    <div v-if="!isVisible" id="wellcome">
+      <h1>Benvingut</h1>
+      <h2>Informació d'utilitat</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <div v-else="isVisible">
     <buttons 
       @nextSentence="nextSentence"
       @prevSentence="prevSentence"
@@ -15,6 +21,10 @@ export default {
       :messages="messages"
       :currentSentence="currentSentence"
     ></escena>
+    </div>
+    <div class="btnToggle"
+    @click="toggle"
+    >{{ isVisible === false ? "Mostrar" : "Tornar Inici" }}</div>
   `,
   data() {
     return {
@@ -27,7 +37,8 @@ export default {
 
         "Mentrestant, altres heroes no van tenir tanta sort en la seva elecció ...",
       ],
-      currentSentence: 1,
+      currentSentence: 0,
+      isVisible: false,
     };
   },
   methods: {
@@ -40,6 +51,9 @@ export default {
       if (this.currentSentence > 0) {
         this.currentSentence--;
       }
+    },
+    toggle() {
+      this.isVisible = !this.isVisible;
     },
   },
 };
